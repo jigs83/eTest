@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [etech Application Test Automation Test Suite]" guice-stage="DEVELOPMENT">
+  <test name="Etech App Test Cases(failed)">
+    <classes>
+      <class name="com.etech.qa.testcases.HomePageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verifyHomePageTitleTest"/>
+          <include name="verifyUserNameTest"/>
+        </methods>
+      </class> <!-- com.etech.qa.testcases.HomePageTest -->
+      <class name="com.etech.qa.testcases.LoginPageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="loginTest"/>
+        </methods>
+      </class> <!-- com.etech.qa.testcases.LoginPageTest -->
+    </classes>
+  </test> <!-- Etech App Test Cases(failed) -->
+</suite> <!-- Failed suite [etech Application Test Automation Test Suite] -->
