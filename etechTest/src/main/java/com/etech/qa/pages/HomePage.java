@@ -1,14 +1,10 @@
 package com.etech.qa.pages;
 
-import java.util.List;
-
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.etech.qa.base.TestBase;
 
@@ -30,6 +26,27 @@ public class HomePage extends TestBase{
 		@FindBy(xpath="//a[@class='cursorCls tooltipped']/i[contains(text(),'close')]")
 		WebElement closechatbtn;
 		
+		@FindBy(xpath="//*[@id='modal']//div[@class='input-field col s12'][2]//input[@type='submit' and @value='OK']")
+		WebElement popokbtn;
+		
+		@FindBy(xpath="//input[@type='submit' and @value='Hang-Up']")
+		WebElement hangupbtn;
+		
+		@FindBy(xpath="//input[@value='Select Disposition']")
+		WebElement dispdd;
+		
+		@FindBy(xpath="//ul/li/span[text()='Tea Break']")
+		WebElement tbrk;
+		
+		@FindBy(xpath="//ul/li/span[text()='Success']")
+		WebElement successdd;
+		
+		@FindBy(xpath="//ul/li/span[text()='Failure']")
+		WebElement faildd;
+		
+		@FindBy(xpath="//input[@value='Submit']")
+		WebElement submitbtn;
+		
 		public HomePage() {
 			PageFactory.initElements(driver, this);
 		}
@@ -42,15 +59,26 @@ public class HomePage extends TestBase{
 			return userNameLabel.isDisplayed();
 		}
 		
+		public boolean verifyclsbtnEnable() {
+			return closechatbtn.isDisplayed();			
+		}
+		
 		public LogOutPage logout() {
 			userNameLabel.click();
 			logoutdd.click();
+			
 			return new LogOutPage();
 			
 		}
-		public void chatDispose() {
+		public void chatDispose() throws InterruptedException {
 			closechatbtn.click();
-			Alert alert = driver.switchTo().alert();
-            alert.accept();
+			Thread.sleep(2000);
+			popokbtn.click();
+			Thread.sleep(2000);
+			dispdd.click();
+			Thread.sleep(2000);
+			faildd.click();
+			Thread.sleep(2000);
+			submitbtn.click();
 		}
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="etech Application Test Automation Test Suite" parallel="methods" thread-count="2">
+
+<listeners>
+		<listener class-name="com.qa.ExtentReportListener.ExtentReporterNG"/>
+	</listeners>
+	
+	<test name="Etech App Test Case1">
+	<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="com.etech.qa.testcases.LoginPageTest"></class>
+		</classes>
+	</test>
+	<test name="Etech App Test Case2">
+		<parameter name="browser" value="FF" />
+		 	<classes>
+				<class name="com.etech.qa.testcases.ChatPageTest">
+			 		<methods>
+                    	<include name="verifyVisitorWindowTest" />
+                	</methods>
+				</class>
+			</classes>
+		</test>
+		<parameter name="browser" value="chrome" />
+		<test name="Etech App Test Case3" >			
+			<classes>			
+			<class name="com.etech.qa.testcases.HomePageTest"></class>
+		</classes>
+	</test>
+</suite>

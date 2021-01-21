@@ -5,13 +5,17 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.etech.qa.base.TestBase;
 
 public class TestUtil extends TestBase{
 
 	public static long PAGE_LOAD_TIMEOUTS=40;
 	public static long IMPLICIT_WAIT=30;
-	
+	public static long EXPLICIT_WAIT=15;
 	
 	
 	public static void takeScreenshotAtEndOfTest() throws IOException {

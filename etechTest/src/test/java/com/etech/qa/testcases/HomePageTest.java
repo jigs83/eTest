@@ -1,9 +1,9 @@
 package com.etech.qa.testcases;
 
-import org.openqa.selenium.Cookie;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.etech.qa.base.TestBase;
@@ -28,7 +28,7 @@ public class HomePageTest extends TestBase{
 	
 	@BeforeMethod
 	public void setUp() {
-		initialization();
+		initialization(prop.getProperty("browser"));
 		driver.get(prop.getProperty("url1"));
 		loginPage= new LoginPage();
 		homePage = new HomePage();
@@ -52,8 +52,7 @@ public class HomePageTest extends TestBase{
 		logoutPage=homePage.logout();
 		loginPage=logoutPage.signOut();
 		//System.out.println(loginPage);
-		Thread.sleep(50000);
-		driver.manage().deleteAllCookies();
+		Thread.sleep(10000);
 		String title=loginPage.ValidateLoginPageTitle();
 		System.out.println(title);
 		Assert.assertEquals(title, "ICE | Login");
